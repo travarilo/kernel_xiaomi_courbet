@@ -7673,7 +7673,7 @@ static inline bool task_fits_max(struct task_struct *p, int cpu)
 
 	if (capacity == max_capacity)
 		return true;
-
+	{
 		if (task_boost_policy(p) == SCHED_BOOST_ON_BIG ||
 			task_boost > 0 ||
 #ifdef CONFIG_SCHED_TUNE
@@ -7683,7 +7683,7 @@ static inline bool task_fits_max(struct task_struct *p, int cpu)
 #endif
 			is_min_capacity_cpu(cpu))
 		return false;
-
+	}
 	return task_fits_capacity(p, capacity, cpu);
 }
 
